@@ -27,14 +27,14 @@
     >
       <q-list v-for="(item, index) in mapRoutes" :key="index">
         <q-expansion-item
+        v-if="item.children && !item.hidden"
         :icon="item.meta.icon"
         :label="item.meta.title"
         :caption="item.meta.caption"
-        v-if="item.children"
         header-class="text-primary"
         >
           <q-list v-for="(children, index) in item.children" :key="index">
-            <q-item clickable @click="$router.push({ name: children.name })">
+            <q-item v-if="!children.hidden" clickable @click="$router.push({ name: children.name })">
             <q-item-section avatar>
               <q-icon :name="children.meta.icon" color="primary"/>
             </q-item-section>
@@ -45,7 +45,7 @@
             </q-item>
           </q-list>
         </q-expansion-item>
-        <q-item clickable @click="$router.push({ name: item.name })" v-else>
+        <q-item v-else-if="!item.hidden" clickable @click="$router.push({ name: item.name })">
           <q-item-section avatar>
             <q-icon :name="item.meta.icon" color="primary"/>
           </q-item-section>

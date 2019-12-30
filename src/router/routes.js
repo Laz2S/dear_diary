@@ -45,14 +45,47 @@ const routes = [
             component: () => import('pages/Book/List.vue')
           },
           {
-            name: 'BookForm',
+            name: 'BookForm-new',
             meta: {
-              title: 'Form',
+              title: 'New Book',
               icon: 'library_add',
-              caption: 'Formulario'
+              caption: 'Novo Livro'
             },
             path: 'Form',
             component: () => import('pages/Book/Form.vue')
+          },
+          {
+            name: 'BookForm-edit',
+            hidden: true,
+            meta: {
+              title: 'Edit Book',
+              icon: 'library_add',
+              caption: 'Editar Livro'
+            },
+            path: 'Form/:book',
+            component: () => import('pages/Book/Form.vue')
+          },
+          {
+            name: 'BookPage-new',
+            hidden: true,
+            meta: {
+              title: 'New Page',
+              icon: 'library_add',
+              caption: 'Nova Página'
+            },
+            path: 'Form/:book/Page',
+            component: () => import('pages/Book/Page/Form.vue')
+          },
+          {
+            name: 'BookPage-edit',
+            hidden: true,
+            meta: {
+              title: 'Edit Page',
+              icon: 'library_add',
+              caption: 'Editar Página'
+            },
+            path: 'Form/:book/Page',
+            component: () => import('pages/Book/Page/Form.vue')
           }
         ]
       }

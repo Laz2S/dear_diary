@@ -7,22 +7,15 @@
             color="positive"
             label="New Page"
             icon-right="menu_book"
-            @click="$router.push({ name: 'BookPage-new', params: { 'book': 1 } })"
             />
         </div>
         <div class="row">
-          <q-input
-            class="full-width"
-            label="Title"
-            v-model="form.title"
-            />
-        </div>
-        <div class="row">
-          <span v-html="'Description'"/>
+          <span v-html="'Page'"/>
           <q-editor
+            :content-style="{ wordWrap: 'anywhere' }"
             class="full-width"
             min-height="5rem"
-            v-model="form.description"
+            v-model="form.page"
             />
         </div>
         <div class="row">
@@ -55,8 +48,7 @@ export default {
   data () {
     return {
       form: {
-        title: '',
-        description: ''
+        page: ''
       }
     }
   },
